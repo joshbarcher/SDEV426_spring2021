@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Random Tips</title>
+    </head>
+    <body>
+        <h1>Random Tips</h1>
+        <ul>
+            <li th:each="cookingTip : ${tips}" th:text="${cookingTip.tip}"></li>
+        </ul>
+    </body>
+</html>
