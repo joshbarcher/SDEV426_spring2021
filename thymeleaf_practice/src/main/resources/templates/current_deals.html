@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <title>Current Deals</title>
+    <link rel="stylesheet" href="/css/styles.css">
   </head>
 
   <body>
@@ -10,15 +11,24 @@
     <hr>
 
     <section>
-      <h2>Deal of the Week</h2>
+      <h2>Deal of the Week: <span th:text="${highlighted.name}"></span></h2>
       <p th:text="${highlighted.name} + ': $' + ${highlighted.price}"></p>
     </section>
 
     <section>
       <h2>Other products</h2>
-      <ul>
 
-      </ul>
+      <div class="product" th:each="product : ${products}"
+           th:if="${products.length != 0}">
+        <h3 th:text="${product.name}"></h3>
+        <ul>
+          <li th:text="'Price: $' + ${product.price}"></li>
+          <li th:text="'Description: ' + ${product.description}"></li>
+          <li th:text="'On Sale?: ' + ${product.onSale}"></li>
+        </ul>
+        <hr>
+      </div>
+      <div th:if="${products.length == 0}">No products found</div>
     </section>
   </body>
 </html>

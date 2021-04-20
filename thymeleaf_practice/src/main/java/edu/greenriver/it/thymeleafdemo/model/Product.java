@@ -13,5 +13,21 @@ public class Product
     private double price;
     private String description;
     private Sale onSale;
+
+    public String getOnSale()
+    {
+        switch (onSale)
+        {
+            case ON_SALE:
+                return "on sale";
+            case NO_SALE:
+                return "no sale";
+            case ONE_TIME_ONLY:
+                return "one time only";
+            case PREMIER_DEAL:
+                return "premier deal";
+        }
+        return null;
+    }
 }
 

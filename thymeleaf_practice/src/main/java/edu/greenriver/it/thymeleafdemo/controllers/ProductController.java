@@ -37,7 +37,12 @@ public class ProductController
     {
         //view variables...
         model.addAttribute("products", fakeProducts);
-        model.addAttribute("highlighted", fakeProducts[0]);
+        model.addAttribute("highlighted", new Product(
+                "fishing pole",
+                79.99,
+                "A must have for any angler.",
+                Sale.ON_SALE
+        ));
 
         return "current_deals";
     }
