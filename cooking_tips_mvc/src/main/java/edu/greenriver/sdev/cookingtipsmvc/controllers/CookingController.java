@@ -18,7 +18,7 @@ public class CookingController
         new CookingTip("baking", "Always Have the Correct Butter Consistency."),
         new CookingTip("baking", "Room Temperature is KEY."),
         new CookingTip("baking", "Read the Recipe Before Beginning."),
-        new CookingTip("baking", "Always Have Ingredients Prepped."),
+        new CookingTip("baking", "Have Ingredients Prepped."),
         new CookingTip("baking", "Learn How to Measure."),
         new CookingTip("baking", "Weigh Your Ingredients."),
         new CookingTip("baking", "Get an Oven Thermometer."),
@@ -34,6 +34,10 @@ public class CookingController
         new CookingTip("grilling", "Avoid putting cold foods straight on the grill."),
         new CookingTip("grilling", "Undercook foods, just slightly."),
         new CookingTip("grilling", "Rest all meat!")
+    };
+
+    private CookingTip[] steamingTips = {
+        new CookingTip("steaming", "Careful when you steam.")
     };
 
     //loads at http://localhost:8080/single
