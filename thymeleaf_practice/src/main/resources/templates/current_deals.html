@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8">
+    <title>Current Deals</title>
+  </head>
+
+  <body>
+    <h1>Welcome to Our Products Page</h1>
+    <hr>
+
+    <section>
+      <h2>Deal of the Week</h2>
+      <p th:text="${highlighted.name} + ': $' + ${highlighted.price}"></p>
+    </section>
+
+    <section>
+      <h2>Other products</h2>
+      <ul>
+
+      </ul>
+    </section>
+  </body>
+</html>
