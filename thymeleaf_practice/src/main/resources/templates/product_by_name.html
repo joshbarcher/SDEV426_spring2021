@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="frags/common_layout :: pageHeader('A Product')"></head>
+    <body>
+        <!-- include a fragment -->
+        <header th:replace="frags/common_layout :: top"></header>
+
+        <div class="product">
+            <h3 th:text="${product.name}"></h3>
+            <ul>
+                <li th:text="'Price: $' + ${product.price}"></li>
+                <li th:text="'Description: ' + ${product.description}"></li>
+                <li th:text="'On Sale?: ' + ${product.onSale}"></li>
+            </ul>
+        </div>
+
+        <!-- include a fragment -->
+        <footer th:replace="frags/common_layout :: bottom"></footer>
+    </body>
+</html>

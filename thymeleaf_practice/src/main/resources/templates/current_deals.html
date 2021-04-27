@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-  <head>
-    <meta charset="UTF-8">
-    <title>Current Deals</title>
-    <link rel="stylesheet" href="/css/styles.css">
-  </head>
+  <head th:replace="frags/common_layout :: pageHeader('Current Deals')"></head>
 
   <body>
+    <!-- include a fragment -->
+    <header th:replace="frags/common_layout :: top"></header>
+
     <h1>Welcome to Our Products Page</h1>
     <hr>
 
@@ -25,10 +24,14 @@
           <li th:text="'Price: $' + ${product.price}"></li>
           <li th:text="'Description: ' + ${product.description}"></li>
           <li th:text="'On Sale?: ' + ${product.onSale}"></li>
+          <li><a th:href="@{'/products/individual/' + ${product.name}}">View</a></li>
         </ul>
         <hr>
       </div>
       <div th:if="${products.length == 0}">No products found</div>
     </section>
+
+    <!-- include a fragment -->
+    <footer th:replace="frags/common_layout :: bottom"></footer>
   </body>
 </html>

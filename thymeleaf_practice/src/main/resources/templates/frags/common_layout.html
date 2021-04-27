@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head th:fragment="pageHeader(title)">
+      <meta charset="UTF-8">
+      <title th:text="${title}">Dummy Title</title>
+      <link rel="stylesheet" href="/css/styles.css">
+  </head>
+  <body>
+    <!-- I want this header at the top of each page -->
+    <header th:fragment="top">
+        <h1>My Products Website</h1>
+        <hr>
+        <nav>
+            <ul>
+                <li>Home</li>
+                <li>All Products</li>
+                <li>Search</li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- I want this footer at the bottom of each page -->
+    <footer th:fragment="bottom">
+        <div>Thanks for stopping by: Josh Archer</div>
+    </footer>
+  </body>
+</html>
