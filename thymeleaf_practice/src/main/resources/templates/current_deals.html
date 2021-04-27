@@ -18,7 +18,7 @@
       <h2>Other products</h2>
 
       <div class="product" th:each="product : ${products}"
-           th:if="${products.length != 0}">
+           th:if="${!products.isEmpty()}">
         <h3 th:text="${product.name}"></h3>
         <ul>
           <li th:text="'Price: $' + ${product.price}"></li>
@@ -28,7 +28,7 @@
         </ul>
         <hr>
       </div>
-      <div th:if="${products.length == 0}">No products found</div>
+      <div th:if="${products.isEmpty()}">No products found</div>
     </section>
 
     <!-- include a fragment -->

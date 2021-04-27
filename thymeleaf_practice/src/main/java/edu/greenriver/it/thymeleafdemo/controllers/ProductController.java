@@ -4,15 +4,17 @@ import edu.greenriver.it.thymeleafdemo.model.Product;
 import edu.greenriver.it.thymeleafdemo.model.Sale;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 @Controller
 @RequestMapping("products")
 public class ProductController
 {
-    private Product[] fakeProducts = {
-        new Product(
+    private List<Product> fakeProducts = new ArrayList<>(Arrays.asList(new Product(
             "fishing_pole",
             79.99,
             "A must have for any angler.",
@@ -30,10 +32,28 @@ public class ProductController
             "A 5 pack of magnets for the fridge.",
             Sale.NO_SALE
         )
-    };
+    ));
+
+    @GetMapping("add")
+    public String loadAddForm(Model model)
+    {
+        model.addAttribute("emptyProduct", new Product());
+        return "add_products_form";
+    }
+
+    @PostMapping("add")
+    public String handleAddForm(@ModelAttribute Product filledProduct)
+    {
+        //save the new product
+        filledProduct.setOnSale(Sale.NO_SALE);
+        fakeProducts.add(filledProduct);
+
+        //redirect to the current deals page to show all products...
+        return "redirect:current";
+    }
 
     //URL should be http://localhost:8080/products/individual/fishingpole
-    @RequestMapping("individual/{name}")
+    @GetMapping("individual/{name}")
     public String showIndividualProduct(@PathVariable String name, Model model)
     {
         Product found = getProductByName(name);
@@ -56,7 +76,7 @@ public class ProductController
     }
 
     //URL should be http://localhost:8080/products/current
-    @RequestMapping("current")
+    @GetMapping("current")
     public String showCurrentDeals(Model model)
     {
         //view variables...
