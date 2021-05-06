@@ -15,22 +15,29 @@ public class VideoUploaderApplication
     public static void main(String[] args)
     {
         ApplicationContext springContainer = SpringApplication.run(VideoUploaderApplication.class, args);
+    }
 
+    private static void test()
+    {
+        /*
         //retrieve our data-layer spring-beans
         IVideoUploadRepository uploadRepo = springContainer.getBean(IVideoUploadRepository.class);
 
         //save some database entities to the database
 
         //these are "transient" objects (not saved/persisted to the db)
-        VideoUpload upload1 = new VideoUpload(0, "http://wwww.youtube.com/awesomevideo", 150, true);
-        VideoUpload upload2 = new VideoUpload(0, "http://wwww.youtube.com/anothervideo", 30, false);
+        VideoUpload upload1 = new VideoUpload(0, "http://www.youtube.com/awesomevideo", 150, true);
+        VideoUpload upload2 = new VideoUpload(0, "http://www.youtube.com/anothervideo", 30, false);
 
         //next we need to convert our objects to a "managed" state
         uploadRepo.save(upload1);
         uploadRepo.save(upload2);
 
         System.out.println("Saved db enties");
-
         System.out.println("Database has " + uploadRepo.count() + " records");
+
+        upload1.setFavorited(false);
+        uploadRepo.save(upload1);
+         */
     }
 }

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Video Uploads</title>
+    </head>
+    <body>
+        <h1>Uploads</h1>
+        <ul>
+            <li th:each="upload : ${uploads}"
+                th:text="${upload.url}"></li>
+        </ul>
+    </body>
+</html>
