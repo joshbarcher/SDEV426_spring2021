@@ -1,6 +1,8 @@
 package edu.greenriver.sdev.video_uploader;
 
+import edu.greenriver.sdev.video_uploader.model.VideoAuthor;
 import edu.greenriver.sdev.video_uploader.model.VideoUpload;
+import edu.greenriver.sdev.video_uploader.repositories.IAuthorRepository;
 import edu.greenriver.sdev.video_uploader.repositories.IVideoUploadRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
@@ -15,6 +17,29 @@ public class VideoUploaderApplication
     public static void main(String[] args)
     {
         ApplicationContext springContainer = SpringApplication.run(VideoUploaderApplication.class, args);
+
+        IVideoUploadRepository videoRepo = springContainer.getBean(IVideoUploadRepository.class);
+        IAuthorRepository authorRepo = springContainer.getBean(IAuthorRepository.class);
+
+        //create two (transient) objects
+        VideoUpload upload = new VideoUpload();
+        upload.setLength(1000);
+        upload.setFavorited(true);
+        upload.setUrl("http://www.twitch.com/gandalf");
+
+        VideoAuthor author = new VideoAuthor();
+        author.setName("Josh Archer");
+
+        //save the video
+        videoRepo.save(upload);
+        authorRepo.save(author);
+
+        //connect them
+        upload.setAuthor(author);
+        author.setUpload(upload);
+
+        //save the video
+        videoRepo.save(upload);
     }
 
     private static void test()

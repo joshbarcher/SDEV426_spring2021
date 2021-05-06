@@ -21,7 +21,7 @@ public class UploadsController
     @RequestMapping("uploads")
     public String uploads(Model model)
     {
-        model.addAttribute("uploads", service.getUploads());
+        model.addAttribute("uploads", service.getYoutubeVideos());
         return "uploads";
     }
 

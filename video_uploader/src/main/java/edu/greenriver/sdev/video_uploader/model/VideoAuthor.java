@@ -10,18 +10,14 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class VideoUpload
+public class VideoAuthor
 {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int uploadId;
+    private int authorId;
+    private String name;
 
-    private String url;
-    private int length;
-    private boolean favorited;
-
-    //there is a one-to-one relationship with authors
-    @OneToOne
-    @JoinColumn(name = "authorId")
-    private VideoAuthor author;
+    //there is a one-to-one relationship with uploads
+    @OneToOne(mappedBy = "author")
+    private VideoUpload upload;
 }

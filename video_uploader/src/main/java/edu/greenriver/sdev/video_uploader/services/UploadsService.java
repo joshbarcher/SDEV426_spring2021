@@ -33,4 +33,15 @@ public class UploadsService
     {
         repo.save(blankVideo);
     }
+
+    public List<VideoUpload> getFavoritedVideos()
+    {
+        return repo.findAllByFavoritedEquals(true);
+    }
+
+    public List<VideoUpload> getYoutubeVideos()
+    {
+        return repo.findAllByUrlStartingWithOrderByUrlDesc(
+                "http://www.youtube.com");
+    }
 }
