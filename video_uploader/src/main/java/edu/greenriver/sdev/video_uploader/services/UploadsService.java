@@ -5,7 +5,9 @@ import edu.greenriver.sdev.video_uploader.repositories.IVideoUploadRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
+/* BUSINESS LOGIC GOES HERE!!!! */
 @Service
 public class UploadsService
 {
@@ -20,5 +22,15 @@ public class UploadsService
     public List<VideoUpload> getUploads()
     {
         return repo.findAll();
+    }
+
+    public VideoUpload getUploadById(int id)
+    {
+        return repo.findById(id).get();
+    }
+
+    public void addVideo(VideoUpload blankVideo)
+    {
+        repo.save(blankVideo);
     }
 }

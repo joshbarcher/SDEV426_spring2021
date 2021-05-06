@@ -6,9 +6,24 @@
     </head>
     <body>
         <h1>Uploads</h1>
-        <ul>
-            <li th:each="upload : ${uploads}"
-                th:text="${upload.url}"></li>
-        </ul>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Url</th>
+                    <th>Length</th>
+                    <th>Favorited</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="upload : ${uploads}">
+                    <td th:text="${upload.id}"></td>
+                    <td th:text="${upload.url}"></td>
+                    <td th:text="${upload.length}"></td>
+                    <td th:text="${upload.favorited}"></td>
+                </tr>
+            </tbody>
+        </table>
     </body>
 </html>

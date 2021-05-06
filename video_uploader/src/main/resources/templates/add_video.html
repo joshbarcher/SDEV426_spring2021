@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Add Video</title>
+    </head>
+
+    <body>
+        <form th:action="@{/videos/add}" method="post"
+              th:object="${blankVideo}">
+            <div>
+                <label for="url">URL</label>
+                <input type="text" name="url" id="url" th:field="*{url}">
+            </div>
+            <div>
+                <label for="length">Length (seconds)</label>
+                <input type="number" name="length" id="length" th:field="*{length}">
+            </div>
+            <div>
+                <label for="favorited">Favorited (true/false)</label>
+                <input type="text" name="favorited" id="favorited" th:field="*{favorited}">
+            </div>
+
+            <button type="submit">Submit</button>
+        </form>
+    </body>
+</html>
