@@ -8,7 +8,7 @@ import java.util.List;
 
 //this is a data layer for VideoUpload objects!
 @Repository
-public interface IVideoUploadRepository extends JpaRepository<VideoUpload, Integer>
+public interface IUploadRepository extends JpaRepository<VideoUpload, Integer>
 {
     List<VideoUpload> findAllByFavoritedEquals(boolean favorited);
 

@@ -1,20 +1,19 @@
 package edu.greenriver.sdev.video_uploader.services;
 
 import edu.greenriver.sdev.video_uploader.model.VideoUpload;
-import edu.greenriver.sdev.video_uploader.repositories.IVideoUploadRepository;
+import edu.greenriver.sdev.video_uploader.repositories.IUploadRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 /* BUSINESS LOGIC GOES HERE!!!! */
 @Service
 public class UploadsService
 {
-    private IVideoUploadRepository repo;
+    private IUploadRepository repo;
 
     //this will be injected automatically by Spring
-    public UploadsService(IVideoUploadRepository repo)
+    public UploadsService(IUploadRepository repo)
     {
         this.repo = repo;
     }

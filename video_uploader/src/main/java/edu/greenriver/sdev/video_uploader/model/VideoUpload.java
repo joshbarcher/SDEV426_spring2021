@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -24,4 +25,8 @@ public class VideoUpload
     @OneToOne
     @JoinColumn(name = "authorId")
     private VideoAuthor author;
+
+    //there is a one-to-many relationship with reviews
+    @OneToMany(mappedBy = "upload")
+    private List<VideoReview> reviews;
 }

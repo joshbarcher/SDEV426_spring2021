@@ -11,6 +11,7 @@
         <li th:text="'Url: ' + ${upload.url}"></li>
         <li th:text="'Length: ' + ${upload.length}"></li>
         <li th:text="'Favorited: ' + ${upload.favorited}"></li>
+        <li th:text="'Author: ' + ${upload.author == null ? 'anonymous' : upload.author.name}"></li>
     </ul>
   </body>
 </html>
