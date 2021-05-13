@@ -12,6 +12,10 @@
         <li th:text="'Length: ' + ${upload.length}"></li>
         <li th:text="'Favorited: ' + ${upload.favorited}"></li>
         <li th:text="'Author: ' + ${upload.author == null ? 'anonymous' : upload.author.name}"></li>
+        <ul>
+            <li th:each="review : ${upload.reviews}"
+                th:text="${review.reviewBody}"></li>
+        </ul>
     </ul>
   </body>
 </html>

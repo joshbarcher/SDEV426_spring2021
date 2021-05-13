@@ -68,6 +68,13 @@ public class VideoUploaderApplication
         reviewRepo.save(review1);
         reviewRepo.save(review2);
         reviewRepo.save(review3);
+
+        //try creating a new video using Lombok builders
+        VideoUpload anotherUpload = VideoUpload.builder()
+            .favorited(true)
+            .length(100)
+            .url("https://www.youtube.com/got")
+            .build();
     }
 
     private static void test()
