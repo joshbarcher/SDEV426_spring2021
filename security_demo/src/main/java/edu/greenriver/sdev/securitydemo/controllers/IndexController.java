@@ -8,8 +8,20 @@ public class IndexController
 {
     //http://localhost:8081/user/page
     @GetMapping("user/page")
-    public String loadIndex()
+    public String loadUser()
     {
         return "user_page";
+    }
+
+    @GetMapping("admin/page")
+    public String loadAdmin()
+    {
+        return "admin_page";
+    }
+
+    @GetMapping("guest/page")
+    public String loadGuest()
+    {
+        return "guest_page";
     }
 }
