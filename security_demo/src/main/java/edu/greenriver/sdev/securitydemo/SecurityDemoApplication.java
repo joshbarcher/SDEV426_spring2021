@@ -27,7 +27,7 @@ public class SecurityDemoApplication
             .build();
         repo.save(testUser);
 
-        testUser.getAuthorities().add(Authority.builder().authority("ROLE_REGULAR_USER").build());
+        testUser.getAuthorities().add(Authority.builder().authority("regular_user").build());
         repo.save(testUser);
     }
 }

@@ -28,6 +28,12 @@ public class MyUser implements UserDetails
     private List<Authority> authorities;
 
     @Override
+    public List<Authority> getAuthorities()
+    {
+        return authorities;
+    }
+
+    @Override
     public boolean isAccountNonExpired()
     {
         return true;
