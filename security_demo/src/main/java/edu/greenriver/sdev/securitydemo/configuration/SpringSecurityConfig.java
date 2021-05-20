@@ -1,5 +1,7 @@
 package edu.greenriver.sdev.securitydemo.configuration;
 
+import edu.greenriver.sdev.securitydemo.repositories.IMyUserRepository;
+import edu.greenriver.sdev.securitydemo.services.UserAccountsService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -13,6 +15,13 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 @EnableWebSecurity
 public class SpringSecurityConfig extends WebSecurityConfigurerAdapter
 {
+    private UserAccountsService service;
+
+    public SpringSecurityConfig(UserAccountsService service) //<-- dependency injection!
+    {
+        this.service = service;
+    }
+
     //we have to define a spring bean that will hash passwords...
     @Bean
     public BCryptPasswordEncoder encoder()
@@ -26,10 +35,14 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter
     protected void configure(AuthenticationManagerBuilder auth) throws Exception
     {
         //configure in-memory user records, with a few default accounts...
-        auth.inMemoryAuthentication()
+        /*auth.inMemoryAuthentication()
             .withUser("admin_account").password(encoder().encode("password123?!")).roles("admin", "regular_user")
             .and()
-            .withUser("user_account").password(encoder().encode("password456?!")).roles("regular_user");
+            .withUser("user_account").password(encoder().encode("password456?!")).roles("regular_user");*/
+
+        auth
+            .userDetailsService(service)
+            .passwordEncoder(encoder());
     }
 
     //configuring access to certain directories...
