@@ -17,5 +17,9 @@ public class BirdWatcher implements IObserver
         {
             System.out.println("Better check this out: " + data[1]);
         }
+        else
+        {
+            System.out.println("Not interested: " + data[1]);
+        }
     }
 }

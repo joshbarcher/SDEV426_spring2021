@@ -15,7 +15,10 @@ public class Hiker implements IObserver
     public void update(Object... data)
     {
         System.out.println("Hiker received data (" + name + ")");
-        System.out.println("Received a message from: " + ((Mountain)data[0]).getName());
+        if (data[0] instanceof Mountain)
+        {
+            System.out.println("Received a message from: " + ((Mountain)data[0]).getName());
+        }
         System.out.println(data[1]);
     }
 }
