@@ -42,7 +42,7 @@ public class NoteBuilder
 
     public Note build()
     {
-        return new Note(author, body, createdOn, updatedOn);
+        return new NoteBuilderIntelliJ().setAuthor(author).setBody(body).setCreatedOn(createdOn).setUpdatedOn(updatedOn).createNote();
     }
 
     public Note buildWithDefaults()
@@ -58,6 +58,6 @@ public class NoteBuilder
             updatedOn = LocalDate.now();
         }
 
-        return new Note(author, body, createdOn, updatedOn);
+        return new NoteBuilderIntelliJ().setAuthor(author).setBody(body).setCreatedOn(createdOn).setUpdatedOn(updatedOn).createNote();
     }
 }
