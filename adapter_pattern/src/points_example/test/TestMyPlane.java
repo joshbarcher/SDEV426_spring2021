@@ -1,9 +1,9 @@
-package test;
+package points_example.test;
 
-import adapters.Point2DAdapter;
-import planes.Plane2D;
-import points.Point2D;
-import points.Point3D;
+import points_example.adapters.Point2DAdapter;
+import points_example.planes.Plane2D;
+import points_example.points.Point2D;
+import points_example.points.Point3D;
 
 public class TestMyPlane
 {

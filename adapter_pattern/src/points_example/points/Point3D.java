@@ -1,4 +1,4 @@
-package points;
+package points_example.points;
 
 public class Point3D
 {

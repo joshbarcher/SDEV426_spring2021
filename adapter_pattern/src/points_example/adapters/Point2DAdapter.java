@@ -1,9 +1,9 @@
-package adapters;
+package points_example.adapters;
 
-import points.IPoint2D;
-import points.Point3D;
+import points_example.points.IPoint2D;
+import points_example.points.Point3D;
 
-//the "adapter" class
+//the "points_example.adapter" class
 public class Point2DAdapter implements IPoint2D
 {
     //store the adaptee

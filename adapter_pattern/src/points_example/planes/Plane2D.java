@@ -1,6 +1,6 @@
-package planes;
+package points_example.planes;
 
-import points.IPoint2D;
+import points_example.points.IPoint2D;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +21,7 @@ public class Plane2D
 
     public void printPlane()
     {
-        //pass all points to System.out.println()
+        //pass all points_example.points to System.out.println()
         for (IPoint2D point : points)
         {
             System.out.println("(" + point.getX() + ", " + point.getY() + ")");
