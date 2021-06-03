@@ -1,5 +1,6 @@
 package sports_example.test;
 
+import sports_example.adapters.BBAdapter;
 import sports_example.athletes.BaseballAthlete;
 import sports_example.athletes.FootballAthlete;
 import sports_example.news.SportsNews;
@@ -9,14 +10,10 @@ public class DriverProgram
     public static void main(String[] args)
     {
         //create a few athletes
-        BaseballAthlete bbAthlete1 = new
-            BaseballAthlete("Ichiro", "Suzuki");
-        BaseballAthlete bbAthlete2 = new
-            BaseballAthlete("Bryce", "Harper");
-        FootballAthlete fbAthlete1 = new
-            FootballAthlete("Tom", 'E', "Brady");
-        FootballAthlete fbAthlete2 = new
-                FootballAthlete("Adrian", 'L', "Peterson");
+        BaseballAthlete bbAthlete1 = new BaseballAthlete("Ichiro", "Suzuki");
+        BaseballAthlete bbAthlete2 = new BaseballAthlete("Bryce", "Harper");
+        FootballAthlete fbAthlete1 = new FootballAthlete("Tom", 'E', "Brady");
+        FootballAthlete fbAthlete2 = new FootballAthlete("Adrian", 'L', "Peterson");
 
         //with stats...
         bbAthlete1.addStat("batting-avg", 0.333);
@@ -28,5 +25,12 @@ public class DriverProgram
 
         //report the athletes
         SportsNews news = new SportsNews();
+
+        news.trackAthlete(new BBAdapter(bbAthlete1));
+        news.trackAthlete(new BBAdapter(bbAthlete2));
+        /*news.trackAthlete(fbAthlete1);
+        news.trackAthlete(fbAthlete2);*/
+
+        news.printStats();
     }
 }

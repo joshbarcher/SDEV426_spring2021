@@ -1,9 +1,9 @@
 package points_example.adapter;
 
-import points_example.points.ICartesianPoint;
+import points_example.points.IPoint2D;
 import points_example.points.Point3D;
 
-public class CartesianPointAdapter implements ICartesianPoint
+public class CartesianPointAdapter implements IPoint2D
 {
     private Point3D adaptee;
 

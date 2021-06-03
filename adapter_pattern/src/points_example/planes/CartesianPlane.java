@@ -1,20 +1,20 @@
 package points_example.planes;
 
-import points_example.points.ICartesianPoint;
+import points_example.points.IPoint2D;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class CartesianPlane
 {
-    private List<ICartesianPoint> points;
+    private List<IPoint2D> points;
 
     public CartesianPlane()
     {
         points = new ArrayList<>();
     }
 
-    public void add(ICartesianPoint point)
+    public void add(IPoint2D point)
     {
         points.add(point);
     }
