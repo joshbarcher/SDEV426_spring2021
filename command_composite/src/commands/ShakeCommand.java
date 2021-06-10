@@ -6,6 +6,10 @@ public class ShakeCommand implements IUmbrellaCommand
 {
     private Umbrella receiver;
 
+    //save old values before the command changes them
+    private boolean oldOpenState;
+    private boolean oldRaining;
+
     public ShakeCommand(Umbrella receiver)
     {
         this.receiver = receiver;
@@ -14,6 +18,10 @@ public class ShakeCommand implements IUmbrellaCommand
     @Override
     public void doAction()
     {
+        //save the old values
+        oldOpenState = receiver.isOpen();
+        oldRaining = receiver.isWet();
+
         //opens and drys the umbrella
         receiver.setOpen(true);
         receiver.setWet(false);
@@ -23,6 +31,8 @@ public class ShakeCommand implements IUmbrellaCommand
     @Override
     public void undoAction()
     {
-
+        System.out.println("Undoing umbrella shake");
+        receiver.setOpen(oldOpenState);
+        receiver.setWet(oldRaining);
     }
 }
